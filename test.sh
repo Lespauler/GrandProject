@@ -1,2 +1,5 @@
-#!/bash/bin
+#/!bash/bin
+
 javac Grand.java
+java Grand
+
