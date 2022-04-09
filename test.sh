@@ -1,5 +1,5 @@
 #/!bash/bin
 
-javac Grand.java
-java Grand
+javac main.java
+java main
 

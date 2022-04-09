@@ -21,24 +21,22 @@ public class Screen{
 
     public Screen(){
         
-        mainWindow=new JFrame("AT");
+        mainWindow=new JFrame("EXAMPLE BANK");
         mainWindow.setVisible(true);
         mainWindow.setSize(d);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         
+    }
+
+   public void toggleMainPanel(){
         
         mainPanel=new JPanel();
         mainPanel.setLayout(null);
-
         mainTitle=new JLabel("Welcome. Please insert your account name and your password");
         mainTitle.setBounds(700, 50, 600,50);
         mainTitle.setFont(new Font("Serif",Font.BOLD,16));
-
         mainPanel.add(mainTitle);
         mainWindow.add(mainPanel);
-        
-    
+
     }
-
-   
-
 }
