@@ -1,5 +1,5 @@
 #/!bash/bin
 
-javac main.java
-java main
+javac App.java
+java App
 
