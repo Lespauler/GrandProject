@@ -29,7 +29,7 @@ public class Screen implements ActionListener{
     JTextField usernameField;
     JTextField passwordField;
 
-    JButton loginButton, newClientButton;
+    JButton loginButton, newClientButton, submitNewClientButton;
 
     JTextField registerName;
     JTextField registerPassword;
@@ -120,24 +120,42 @@ public class Screen implements ActionListener{
     public void newClientPanel(){
 
         newClientPanel=new JPanel();
-        newClientPanel.setBackground(new Color(57,17,165));
+        newClientPanel.setBackground(new Color(57,17,165));         //panel
         newClientPanel.setLayout(null);
 
-        registerName=new JTextField();
-        registerName.setText("Please Enter Your Name");
+        registerNameLabel=new JLabel("Username");                   //labels
+        registerNameLabel.setForeground(Color.white);              
+        registerNameLabel.setBounds(815,350,80,18);
+
+        registerPasswordLabel=new JLabel("Password");
+        registerPasswordLabel.setForeground(Color.white);
+        registerPasswordLabel.setBounds(815,390,80,18);
+
+        confirmPasswordLabel=new JLabel("Confirm Password");
+        confirmPasswordLabel.setForeground(Color.white);
+        confirmPasswordLabel.setBounds(758,430,140,18);
+
+        registerName=new JTextField();                              //textfields
         registerName.setBounds(900,350,140,20);
 
         registerPassword=new JTextField();
-        registerPassword.setText("Enter Password");
         registerPassword.setBounds(900,390,140,20);
 
         confirmPassword=new JTextField();
-        confirmPassword.setText("Confirm");
         confirmPassword.setBounds(900,430,140,20);
 
+        submitNewClientButton=new JButton("Register");              //buttons
+        submitNewClientButton.setFocusPainted(false);
+        submitNewClientButton.addActionListener(this);
+        submitNewClientButton.setBounds(900,490,100,20);
+
+        newClientPanel.add(confirmPasswordLabel);                   //adding everything together
+        newClientPanel.add(registerPasswordLabel);                            
+        newClientPanel.add(registerNameLabel);                      
         newClientPanel.add(confirmPassword);
         newClientPanel.add(registerName);
-        newClientPanel.add(registerPassword);   
+        newClientPanel.add(registerPassword); 
+        newClientPanel.add(submitNewClientButton);  
 
         mainWindow.add(newClientPanel);
         mainWindow.pack();
