@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.xml.namespace.QName;
+
 import java.awt.event.*;
 
 
@@ -29,7 +31,7 @@ public class Screen implements ActionListener{
     JTextField usernameField;
     JTextField passwordField;
 
-    JButton loginButton, newClientButton, submitNewClientButton;
+    JButton loginButton, newClientButton, submitNewClientButton,returnButton;
 
     JTextField registerName;
     JTextField registerPassword;
@@ -147,7 +149,12 @@ public class Screen implements ActionListener{
         submitNewClientButton=new JButton("Register");              //buttons
         submitNewClientButton.setFocusPainted(false);
         submitNewClientButton.addActionListener(this);
-        submitNewClientButton.setBounds(900,490,100,20);
+        submitNewClientButton.setBounds(830,490,100,20);
+
+        returnButton=new JButton("Cancel");
+        returnButton.setFocusPainted(false);
+        returnButton.addActionListener(this);
+        returnButton.setBounds(940,490,100,20);
 
         newClientPanel.add(confirmPasswordLabel);                   //adding everything together
         newClientPanel.add(registerPasswordLabel);                            
@@ -156,6 +163,7 @@ public class Screen implements ActionListener{
         newClientPanel.add(registerName);
         newClientPanel.add(registerPassword); 
         newClientPanel.add(submitNewClientButton);  
+        newClientPanel.add(returnButton);
 
         mainWindow.add(newClientPanel);
         mainWindow.pack();
@@ -166,11 +174,17 @@ public class Screen implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if(e.getSource()==newClientButton){
+        if(e.getSource()==newClientButton){                         //go to register panel
             mainWindow.remove(mainPanel);
             mainWindow.remove(inputPanel);
             this.newClientPanel();
 
+        }
+        if(e.getSource()==returnButton){                            //return to main panel
+            mainWindow.remove(newClientPanel);
+            mainWindow.repaint();
+            toggleMainPanel();
+            
         }
     
     }
