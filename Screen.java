@@ -22,10 +22,18 @@ public class Screen implements ActionListener{
 
     JLabel accountNameLabel;
     JLabel passwordLabel;
+    JLabel registerNameLabel;
+    JLabel registerPasswordLabel;
+    JLabel confirmPasswordLabel;
     
     JTextField usernameField;
     JTextField passwordField;
+
     JButton loginButton, newClientButton;
+
+    JTextField registerName;
+    JTextField registerPassword;
+    JTextField confirmPassword;
 
     public Screen(){
       
@@ -91,10 +99,6 @@ public class Screen implements ActionListener{
         newClientButton.setFocusPainted(false);
         newClientButton.addActionListener(this);
 
-        //action listener
-
-        
-
         //add everything togetherter
 
         inputPanel.add(accountNameLabel);
@@ -111,10 +115,30 @@ public class Screen implements ActionListener{
 
     }
 
-    public void newClienPanel(){
+    //register panel
+
+    public void newClientPanel(){
 
         newClientPanel=new JPanel();
-        newClientPanel.setBackground(Color.white);
+        newClientPanel.setBackground(new Color(57,17,165));
+        newClientPanel.setLayout(null);
+
+        registerName=new JTextField();
+        registerName.setText("Please Enter Your Name");
+        registerName.setBounds(900,350,140,20);
+
+        registerPassword=new JTextField();
+        registerPassword.setText("Enter Password");
+        registerPassword.setBounds(900,390,140,20);
+
+        confirmPassword=new JTextField();
+        confirmPassword.setText("Confirm");
+        confirmPassword.setBounds(900,430,140,20);
+
+        newClientPanel.add(confirmPassword);
+        newClientPanel.add(registerName);
+        newClientPanel.add(registerPassword);   
+
         mainWindow.add(newClientPanel);
         mainWindow.pack();
         mainWindow.repaint();
@@ -127,7 +151,7 @@ public class Screen implements ActionListener{
         if(e.getSource()==newClientButton){
             mainWindow.remove(mainPanel);
             mainWindow.remove(inputPanel);
-            this.newClienPanel();
+            this.newClientPanel();
 
         }
     
