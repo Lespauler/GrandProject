@@ -3,10 +3,21 @@ public class Client {
     String name, password;
     int id;
     double currentMoney;
+    Client[][][][] clients;
 
-    public void Client(){
+    public Client(String name,String password, int id,double currentMoney){
 
+        this.name=name;
+        this.password=password;
+        this.id=id;
+        this.currentMoney=currentMoney;
 
+    
+    }
+
+    public void setOnClients(String name, String password,int id , double currentMoney){
+
+        
 
     }
 
