@@ -14,6 +14,7 @@ import java.awt.event.*;
 
 public class Screen implements ActionListener{
 
+    String temp;
     JFrame mainWindow;
     static Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
     JLabel mainTitle;
@@ -177,14 +178,20 @@ public class Screen implements ActionListener{
             mainWindow.remove(mainPanel);
             mainWindow.remove(inputPanel);
             this.newClientPanel();
+            
 
         }
         if(e.getSource()==returnButton){                            //return to main panel
             mainWindow.remove(newClientPanel);
             mainWindow.repaint();
             toggleMainPanel();
-            
+
         }
+
+        if(e.getSource()==submitNewClientButton){
+            temp=registerPassword.getText().toString();
+            
+         }
     
     }
 }
